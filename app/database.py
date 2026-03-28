@@ -10,8 +10,8 @@ DATABASE_URL = settings.BaseSettings.DATABASE_URL
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,
-    pool_size=100,
-    max_overflow=20,
+    pool_size=5,
+    max_overflow=10,
     pool_recycle=1800,
     pool_timeout=30,
     echo=False
