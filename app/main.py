@@ -105,7 +105,7 @@ def get_prices():
         db.close()
 
 
-@app.websocket("/ws/crypto")
+@app.websocket("/ws")
 async def websocket_crypto(ws: WebSocket):
     await manager.connect(ws)
     logger.info("ws_client_connected", total=len(manager.active))

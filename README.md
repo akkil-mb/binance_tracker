@@ -33,7 +33,7 @@ docker compose up --build
 |-----------|--------------|--------------------------------------------------|
 | GET       | `/`          | Health check                                     |
 | GET       | `/price`     | Latest prices for all tracked pairs (JSON)       |
-| WebSocket | `/ws/crypto` | Live price feed (JSON broadcast)                 |
+| WebSocket | `/ws` | Live price feed (JSON broadcast)                 |
 
 ### GET /price
 
@@ -50,7 +50,7 @@ Returns the latest stored price for all tracked pairs.
 ]
 ```
 
-### WebSocket /ws/crypto
+### WebSocket /ws
 
 On connect, the client receives a snapshot of current prices followed by live updates as they arrive from Binance.
 
