@@ -24,6 +24,3 @@ class CryptoTracker(Base):
     timestamp = Column(DateTime(timezone=True), nullable=True)  # event time from Binance
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
-
-    def __str__(self):
-        return f"{self.name} : {self.symbol}"
