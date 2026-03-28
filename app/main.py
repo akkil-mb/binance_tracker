@@ -87,6 +87,24 @@ def root():
     return {"status": "ok"}
 
 
+@app.get("/price")
+def get_prices():
+    db = SessionLocal()
+    try:
+        records = db.query(CryptoTracker).all()
+        return [
+            {
+                "symbol": r.symbol,
+                "last_price": str(r.last_price),
+                "24_hour_change_percent": str(r.one_day_change),
+                "timestamp": r.timestamp.isoformat() if r.timestamp else None,
+            }
+            for r in records
+        ]
+    finally:
+        db.close()
+
+
 @app.websocket("/ws/crypto")
 async def websocket_crypto(ws: WebSocket):
     await manager.connect(ws)

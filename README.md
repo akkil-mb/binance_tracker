@@ -29,12 +29,30 @@ docker compose up --build
 
 ## Endpoints
 
-| Method    | Path         | Description                        |
-|-----------|--------------|------------------------------------|
-| GET       | `/`          | Health check                       |
-| WebSocket | `/ws/crypto` | Live price feed (JSON broadcast)   |
+| Method    | Path         | Description                                      |
+|-----------|--------------|--------------------------------------------------|
+| GET       | `/`          | Health check                                     |
+| GET       | `/price`     | Latest prices for all tracked pairs (JSON)       |
+| WebSocket | `/ws/crypto` | Live price feed (JSON broadcast)                 |
 
-On WebSocket connect, the client receives a snapshot of current prices followed by live updates.
+### GET /price
+
+Returns the latest stored price for all tracked pairs.
+
+```json
+[
+  {
+    "symbol": "BTCUSDT",
+    "last_price": "67432.12",
+    "24_hour_change_percent": "1.82",
+    "timestamp": "2026-03-28T10:00:00+00:00"
+  }
+]
+```
+
+### WebSocket /ws/crypto
+
+On connect, the client receives a snapshot of current prices followed by live updates as they arrive from Binance.
 
 ```json
 [

@@ -7,10 +7,11 @@ import structlog
 
 logger = structlog.get_logger(__name__)
 
-# Add or remove symbols here — the stream and name mapping are derived automatically.
+# Add or remove symbols here
 TRACKED_SYMBOLS: dict[str, str] = {
     "BTCUSDT": "Bitcoin",
     "ETHUSDT": "Ethereum",
+    "BNBUSDT": "BNB",
 }
 
 _streams = "/".join(f"{s.lower()}@ticker" for s in TRACKED_SYMBOLS)
