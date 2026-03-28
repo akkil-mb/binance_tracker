@@ -1,0 +1,21 @@
+[project]
+name = "websocket-project"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.112.0",
+    "alembic==1.13.1",
+    "uvicorn==0.27.0",
+    "sqlalchemy==2.0.23",
+    "python-dotenv==1.0.0",
+    "gevent==24.2.1",
+    "gunicorn==21.2.0",
+    "psycopg2-binary==2.9.9",
+    "structlog==24.4.0",
+    "httpx>=0.27.0",
+    "websockets>=12.0",
+    "ipython>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
